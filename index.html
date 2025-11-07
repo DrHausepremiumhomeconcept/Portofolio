@@ -59,17 +59,20 @@
       visibility: hidden;
     }
 
-    .loading-logo {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3.5rem;
-      font-weight: 800;
-      color: white;
+    /* Loading Logo Image */
+    .loading-logo-image {
+      height: 80px;
       margin-bottom: 30px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .loading-logo span {
-      color: var(--primary);
+    .loading-logo-image img {
+      height: 100%;
+      width: auto;
+      max-width: 300px;
+      object-fit: contain;
     }
 
     .loading-subtitle {
@@ -1256,8 +1259,13 @@
 
     /* Mobile Medium */
     @media (max-width: 576px) {
-      .loading-logo {
-        font-size: 2.5rem;
+      .loading-logo-image {
+        height: 60px;
+        margin-bottom: 20px;
+      }
+      
+      .loading-logo-image img {
+        max-width: 250px;
       }
       
       .loading-subtitle {
@@ -1382,8 +1390,13 @@
 
     /* Mobile Small */
     @media (max-width: 400px) {
-      .loading-logo {
-        font-size: 2rem;
+      .loading-logo-image {
+        height: 50px;
+        margin-bottom: 15px;
+      }
+      
+      .loading-logo-image img {
+        max-width: 200px;
       }
       
       h1 {
@@ -1492,8 +1505,10 @@
 <body>
   <!-- Loading Screen -->
   <div class="loading-screen" id="loadingScreen">
-    <div class="loading-logo">DR <span>Haus</span> WF</div>
-    <div class="loading-subtitle">Premium Fenster & Türen aus Polen</div>
+    <div class="loading-logo-image">
+      <img src="logo-1.png" alt="DR Haus WF">
+    </div>
+    <div class="loading-subtitle">Premium Fenster & Türen</div>
     <div class="loading-spinner"></div>
     <div class="loading-progress">
       <div class="loading-progress-bar" id="loadingProgress"></div>
@@ -1520,7 +1535,6 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-container">
-      <!-- Logo Image -->
       <div class="logo-image">
         <img src="logo-1.png" alt="DR Haus WF">
       </div>
@@ -1548,7 +1562,7 @@
     <div class="header-container">
       <div class="hero-text">
         <h1>Präzision in jedem Rahmen</h1>
-        <p>Premium Fenster und Türen aus Polen für moderne Architektur.</p>
+        <p>Premium Fenster und Türen für moderne Architektur.</p>
         <a href="#portfolio" class="btn">Projekte entdecken</a>
       </div>
       <div class="hero-image">
@@ -1564,7 +1578,7 @@
     <div class="section-content">
       <div class="section-title fade-in">
         <h2>Über uns</h2>
-        <p>Ihr Experte für hochwertige Fenster und Türen aus Polen</p>
+        <p>Ihr Experte für hochwertige Fenster und Türen</p>
       </div>
       <div class="about-container">
         <div class="about-text slide-in-left">
@@ -1698,8 +1712,8 @@
   <footer>
     <div class="footer-container">
       <div class="footer-col">
-        <h3>DR Haus WF</h3>
-        <p>Ihr Spezialist für hochwertige Fenster und Türen aus Polen. Persönlicher Service von der Beratung bis zur Montage.</p>
+        <h3>Dr Haus Bauservice</h3>
+        <p>Ihr Spezialist für hochwertige Fenster und Türen. Persönlicher Service von der Beratung bis zur Montage.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/profile.php?id=100064110396410" target="_blank"><i class="fab fa-facebook-f"></i></a>
           <a href="https://www.instagram.com/drhausbauservice?igsh=ZzE5NDU0cjR6MTZu" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -1750,7 +1764,7 @@
       </div>
     </div>
     <div class="copyright">
-      <p>&copy; 2025 DR Haus WF. Alle Rechte vorbehalten.</p>
+      <p>&copy; Dr Haus Bauservice. Alle Rechte vorbehalten.</p>
     </div>
   </footer>
 
