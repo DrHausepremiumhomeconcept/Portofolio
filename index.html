@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>DR Haus WF | Premium Fenster & Türen aus Polen</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo-1.png">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -213,6 +217,20 @@
 
     .logo span {
       color: var(--primary);
+    }
+
+    /* Logo Image Styles */
+    .logo-image {
+      height: 50px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-image img {
+      height: 100%;
+      width: auto;
+      max-width: 200px;
+      object-fit: contain;
     }
 
     .nav-links {
@@ -1502,7 +1520,10 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-container">
-      <div class="logo">DR <span>Haus</span> WF</div>
+      <!-- Logo Image -->
+      <div class="logo-image">
+        <img src="logo-1.png" alt="DR Haus WF">
+      </div>
       <button class="mobile-menu-btn" id="mobileMenuBtn">
         <i class="fas fa-bars"></i>
       </button>
