@@ -501,7 +501,7 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
-    /* Customer Counter - DIHAPUS ANIMASINYA */
+    /* Customer Counter - WITH ANIMATION */
     .customer-counter {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 15px;
@@ -510,6 +510,14 @@
       text-align: center;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .customer-counter.active {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .counter-title {
@@ -1544,10 +1552,10 @@
           <p>Durch langjährige Partnerschaften mit führenden polnischen Herstellern wie Kapica, CAL, ROKA und PAGEN können wir Ihnen erstklassige Qualität zu wettbewerbsfähigen Preisen anbieten.</p>
           <a href="#contact" class="btn">Kontakt aufnehmen</a>
           
-          <!-- Customer Counter - TANPA ANIMASI -->
-          <div class="customer-counter fade-in">
+          <!-- Customer Counter - WITH ANIMATION -->
+          <div class="customer-counter" id="customerCounter">
             <h3 class="counter-title">Zufriedene Kunden vertrauen auf unsere Qualität</h3>
-            <div class="counter-number">150+</div>
+            <div class="counter-number" id="counterNumber">0</div>
             <p class="counter-text">Familien und Unternehmen haben unsere Dienstleistungen bereits in Anspruch genommen</p>
           </div>
 
@@ -1721,7 +1729,7 @@
       </div>
     </div>
     <div class="copyright">
-      <p>&copy; 2023 DR Haus WF. Alle Rechte vorbehalten.</p>
+      <p>&copy; 2025 DR Haus WF. Alle Rechte vorbehalten.</p>
     </div>
   </footer>
 
@@ -1745,6 +1753,51 @@
         }
         loadingProgress.style.width = progress + '%';
       }, 200);
+    }
+
+    // Counter Animation Function
+    function animateCounter(element, start, end, duration) {
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const value = Math.floor(progress * (end - start) + start);
+        element.textContent = value + "+";
+        
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
+    }
+
+    // Intersection Observer for Counter
+    function initCounterObserver() {
+      const counterElement = document.getElementById('counterNumber');
+      const counterContainer = document.getElementById('customerCounter');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Add active class for fade-in effect
+            counterContainer.classList.add('active');
+            
+            // Start counter animation
+            setTimeout(() => {
+              animateCounter(counterElement, 0, 150, 2000); // 0 to 150 in 2 seconds
+            }, 500); // Small delay after fade-in
+            
+            // Stop observing after animation starts
+            observer.unobserve(counterContainer);
+          }
+        });
+      }, {
+        threshold: 0.5, // Trigger when 50% of element is visible
+        rootMargin: '0px 0px -50px 0px' // Adjust trigger point
+      });
+
+      // Start observing the counter container
+      observer.observe(counterContainer);
     }
 
     // Mobile Menu Functionality
@@ -2032,6 +2085,7 @@
       
       // Initialize other components after a short delay
       setTimeout(() => {
+        initCounterObserver();
         initMobileMenu();
         initCarousel();
         initManufacturersScroll();
