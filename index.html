@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>DR Haus WF | Premium Fenster & Türen aus Polen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -233,6 +233,16 @@
 
     .nav-links a:hover {
       color: var(--primary);
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
     }
 
     /* Social Media Icons */
@@ -1054,8 +1064,9 @@
       }
     }
 
-    /* Responsive Styles */
-    @media (max-width: 992px) {
+    /* ========== RESPONSIVE STYLES ========== */
+    /* Tablet */
+    @media (max-width: 1024px) {
       .header-container {
         flex-direction: column;
         text-align: center;
@@ -1113,15 +1124,35 @@
       }
     }
 
+    /* Mobile Large */
     @media (max-width: 768px) {
+      /* Navigation */
       .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        gap: 15px;
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+      
+      .nav-links li {
+        margin-left: 0;
       }
       
       .mobile-menu-btn {
         display: block;
       }
       
+      /* Header */
       h1 {
         font-size: 2.2rem;
       }
@@ -1135,6 +1166,7 @@
         font-size: 2.5rem;
       }
 
+      /* Portfolio */
       .portfolio-item img {
         height: 300px;
       }
@@ -1145,6 +1177,7 @@
         font-size: 1.5rem;
       }
 
+      /* Manufacturers */
       .manufacturer-card {
         flex: 0 0 200px;
         padding: 25px 15px;
@@ -1155,10 +1188,34 @@
         margin-bottom: 20px;
       }
 
+      /* Sections */
+      section {
+        padding: 60px 0;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .section-title p {
+        padding: 0 15px;
+      }
+
       /* Tetap dua kolom di mobile */
       .partner-columns {
         grid-template-columns: 1fr 1fr;
         gap: 15px;
+      }
+
+      /* History Section */
+      .history-section {
+        padding: 20px;
+      }
+      
+      .history-btn {
+        min-width: auto;
+        width: 100%;
+        justify-content: center;
       }
 
       @keyframes scrollHorizontal {
@@ -1171,13 +1228,42 @@
       }
     }
 
+    /* Mobile Medium */
     @media (max-width: 576px) {
-      section {
-        padding: 60px 0;
+      .loading-logo {
+        font-size: 2.5rem;
       }
       
-      .section-title h2 {
-        font-size: 2rem;
+      .loading-subtitle {
+        font-size: 1rem;
+      }
+      
+      .header-container {
+        padding: 0 15px;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+      }
+      
+      .hero-text p {
+        font-size: 1rem;
+      }
+      
+      .profile-photo {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .btn {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+      }
+
+      /* About Section */
+      .about-text h3 {
+        font-size: 1.5rem;
       }
       
       .customer-counter {
@@ -1192,10 +1278,24 @@
         font-size: 1.2rem;
       }
 
+      /* Portfolio */
       .portfolio-item img {
         height: 250px;
       }
+      
+      .portfolio-info {
+        padding: 15px;
+      }
+      
+      .portfolio-info h4 {
+        font-size: 1.2rem;
+      }
+      
+      .portfolio-info p {
+        font-size: 0.9rem;
+      }
 
+      /* Modal */
       .modal-content {
         padding: 30px 20px;
       }
@@ -1204,6 +1304,7 @@
         flex-direction: column;
       }
 
+      /* Manufacturers */
       .manufacturer-card {
         flex: 0 0 180px;
         padding: 20px 15px;
@@ -1215,6 +1316,25 @@
       }
 
       .manufacturer-card h3 {
+        font-size: 1.2rem;
+      }
+
+      /* Contact */
+      .map-container {
+        height: 300px;
+      }
+      
+      .contact-info h3 {
+        font-size: 1.5rem;
+      }
+
+      /* Footer */
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .footer-col h3 {
         font-size: 1.2rem;
       }
 
@@ -1234,8 +1354,60 @@
       }
     }
 
-    /* Untuk layar sangat kecil (di bawah 400px) */
+    /* Mobile Small */
     @media (max-width: 400px) {
+      .loading-logo {
+        font-size: 2rem;
+      }
+      
+      h1 {
+        font-size: 1.6rem;
+      }
+      
+      .profile-photo {
+        width: 180px;
+        height: 180px;
+      }
+      
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .portfolio-item img {
+        height: 200px;
+      }
+      
+      .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+      }
+      
+      .carousel-btn.prev {
+        left: 10px;
+      }
+      
+      .carousel-btn.next {
+        right: 10px;
+      }
+
+      .manufacturer-card {
+        flex: 0 0 160px;
+        padding: 15px 10px;
+      }
+
+      .manufacturer-logo {
+        height: 50px;
+      }
+
+      .manufacturer-card h3 {
+        font-size: 1.1rem;
+      }
+
+      .manufacturer-card p {
+        font-size: 0.85rem;
+      }
+
       .partner-columns {
         grid-template-columns: 1fr 1fr;
         gap: 8px;
@@ -1247,6 +1419,46 @@
       
       .footer-links a {
         font-size: 0.9rem;
+      }
+      
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        bottom: 20px;
+        right: 20px;
+      }
+
+      @keyframes scrollHorizontal {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-160px * 12 - 40px * 12));
+        }
+      }
+    }
+
+    /* Untuk landscape mobile */
+    @media (max-height: 500px) and (orientation: landscape) {
+      header {
+        height: auto;
+        min-height: 100vh;
+        padding: 100px 0 50px;
+      }
+      
+      .header-container {
+        flex-direction: row;
+      }
+      
+      .hero-text {
+        padding-right: 20px;
+        margin-bottom: 0;
+      }
+      
+      .profile-photo {
+        width: 150px;
+        height: 150px;
       }
     }
   </style>
@@ -1283,7 +1495,10 @@
   <nav>
     <div class="nav-container">
       <div class="logo">DR <span>Haus</span> WF</div>
-      <ul class="nav-links">
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
@@ -1506,7 +1721,7 @@
       </div>
     </div>
     <div class="copyright">
-      <p>&copy; 2025 DR Haus WF. Alle Rechte vorbehalten.</p>
+      <p>&copy; 2023 DR Haus WF. Alle Rechte vorbehalten.</p>
     </div>
   </footer>
 
@@ -1530,6 +1745,34 @@
         }
         loadingProgress.style.width = progress + '%';
       }, 200);
+    }
+
+    // Mobile Menu Functionality
+    function initMobileMenu() {
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+      
+      mobileMenuBtn.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        // Change icon based on menu state
+        const icon = this.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Close menu when clicking on a link
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+          mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+        });
+      });
     }
 
     // Portfolio Data for Carousel
@@ -1653,7 +1896,7 @@
       },
       {
         name: "FABROL",
-        logo: "https://via.placeholder.com/200x100/1e90ff/ffffff?text=GLASSPRO",
+        logo: "logo-fabrol.jpg",
         description: "Spezialglas für besondere Anforderungen"
       },
       {
@@ -1789,6 +2032,7 @@
       
       // Initialize other components after a short delay
       setTimeout(() => {
+        initMobileMenu();
         initCarousel();
         initManufacturersScroll();
         initScrollAnimations();
